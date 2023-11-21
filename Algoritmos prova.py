@@ -39,7 +39,7 @@ class Grafo:
 
         return distancias[fim]
 
-# Função para calcular o caminho mínimo e exibir o resultado na interface gráfica
+
 def calcular_caminho():
     cidade_origem = combo_origem.get()
     cidade_destino = combo_destino.get()
@@ -51,11 +51,11 @@ def calcular_caminho():
     else:
         resultado_label.config(text=f"O caminho mínimo entre {cidade_origem} e {cidade_destino} é {custo_caminho} km.")
 
-# Função para encerrar o programa
+
 def encerrar_programa():
     root.destroy()
 
-# Criando o grafo com as cidades e distâncias
+
 grafo = Grafo()
 cidades = ["São Paulo", "Rio de Janeiro", "Vitória", "Recife", "Salvador", "Natal"]
 
@@ -70,11 +70,11 @@ grafo.adicionar_aresta("Vitória", "Recife", 550)
 grafo.adicionar_aresta("Recife", "Salvador", 700)
 grafo.adicionar_aresta("Salvador", "Natal", 450)
 
-# Criando a interface gráfica
+
 root = tk.Tk()
 root.title("Calculadora de Caminho Mínimo")
 
-# Criando os widgets
+
 label_origem = ttk.Label(root, text="Cidade de Origem:")
 label_destino = ttk.Label(root, text="Cidade de Destino:")
 combo_origem = ttk.Combobox(root, values=cidades)
@@ -82,7 +82,6 @@ combo_destino = ttk.Combobox(root, values=cidades)
 calcular_button = ttk.Button(root, text="Calcular Caminho", command=calcular_caminho)
 resultado_label = ttk.Label(root, text="")
 
-# Posicionando os widgets
 label_origem.grid(row=0, column=0, padx=10, pady=10)
 combo_origem.grid(row=0, column=1, padx=10, pady=10)
 label_destino.grid(row=1, column=0, padx=10, pady=10)
@@ -90,12 +89,11 @@ combo_destino.grid(row=1, column=1, padx=10, pady=10)
 calcular_button.grid(row=2, column=0, columnspan=2, pady=10)
 resultado_label.grid(row=3, column=0, columnspan=2, pady=10)
 
-# Adicionando a opção de encerrar o programa no menu
 menu_bar = tk.Menu(root)
 root.config(menu=menu_bar)
 menu_programa = tk.Menu(menu_bar)
 menu_bar.add_cascade(label="Programa", menu=menu_programa)
 menu_programa.add_command(label="Encerrar", command=encerrar_programa)
 
-# Iniciando o loop principal da interface gráfica
+
 root.mainloop()
